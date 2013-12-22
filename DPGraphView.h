@@ -20,6 +20,7 @@
 
 @property (nonatomic, weak) id<DPGraphViewDataSource> dataSource;
 
+// Graphing properties
 @property (nonatomic) double minX;
 @property (nonatomic) double maxX;
 
