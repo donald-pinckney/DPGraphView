@@ -13,6 +13,9 @@
 @optional
 
 - (UIColor *) graphView:(DPGraphView *)graphView colorForPlotIndex:(NSUInteger)plotIndex;
+- (UIColor *) graphViewColorForGrid:(DPGraphView *)graphView;
+- (UIColor *) graphViewColorForXAxis:(DPGraphView *)graphView;
+- (UIColor *) graphViewColorForYAxis:(DPGraphView *)graphView;
 
 @end
 
@@ -26,6 +29,10 @@
 
 @property (nonatomic) double minY;
 @property (nonatomic) double maxY;
+
+@property (nonatomic) BOOL displayGridlines;
+@property (nonatomic) BOOL dashGridlines;
+@property (nonatomic) BOOL displayAxes;
 
 
 @end
