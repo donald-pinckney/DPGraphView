@@ -1,9 +1,5 @@
 //
 //  GraphView.h
-//  Puff
-//
-//  Created by Donald Pinckney on 12/21/13.
-//  Copyright (c) 2013 Davis App Dev. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>

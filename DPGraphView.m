@@ -42,7 +42,6 @@
     [path moveToPoint:firstPoint];
     
     NSUInteger numIterations = self.bounds.size.width / GRAPH_RESOLUTION * [UIScreen mainScreen].scale;
-    NSLog(@"Rendering with numIterations = %d", numIterations);
     CGFloat increment = GRAPH_RESOLUTION / self.bounds.size.width * (self.maxX - self.minX);
     for(NSUInteger i = 1; i <= numIterations; i++) {
         CGFloat x = self.minX + i * increment;
