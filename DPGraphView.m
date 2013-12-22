@@ -29,7 +29,7 @@
 }
 
 
-#define GRAPH_RESOLUTION 1.0f // pixels / data point
+#define GRAPH_RESOLUTION 1.0f // pixels / data point -- UPDATE THIS AT WILL
 
 #pragma mark -
 #pragma mark Drawing Subroutines
