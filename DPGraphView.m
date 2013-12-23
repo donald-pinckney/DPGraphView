@@ -256,8 +256,9 @@
     }
     
     if(self.dashGridlines) {
-        const CGFloat dashes[2] = {8, 6};
+        const CGFloat dashes[2] = {2, 8};
         [path setLineDash:dashes count:2 phase:0];
+        path.lineWidth = 2.0;
     }
     [path stroke];
 }
@@ -307,7 +308,7 @@
     UIBezierPath *graphClipPath = [UIBezierPath bezierPathWithRect:[self graphBounds]];
     CGContextSaveGState(UIGraphicsGetCurrentContext()); {
         [graphClipPath addClip];
-        path.lineWidth = 2.0f;
+        path.lineWidth = 3.0f;
         [path stroke];
     } CGContextRestoreGState(UIGraphicsGetCurrentContext());
     
@@ -325,10 +326,10 @@
     CGFloat xLabelsYCoord = graphBounds.origin.y + graphBounds.size.height + AXIS_LABEL_TO_BORDER_SPACE;
     
     CGRect xRect = CGRectMake(graphBounds.origin.x + graphBounds.size.width / 2 - xSize.width/2, xLabelsYCoord, xSize.width, xSize.height);
-    [xLabel drawInRect:xRect withAttributes:[self axesLabelsAttributes]];
+    [xLabel drawInRect:CGRectIntegral(xRect) withAttributes:[self axesLabelsAttributes]];
     
     CGRect yRect = CGRectMake(graphBounds.origin.x - AXIS_LABEL_TO_BORDER_SPACE - ySize.width, graphBounds.origin.y + graphBounds.size.height / 2 - ySize.height / 2, ySize.width, ySize.height);
-    [yLabel drawInRect:yRect withAttributes:[self axesLabelsAttributes]];
+    [yLabel drawInRect:CGRectIntegral(yRect) withAttributes:[self axesLabelsAttributes]];
     
     
     // Numeric labels
@@ -336,25 +337,25 @@
     NSString *numericLabel = [NSString stringWithFormat:@"%.4g", self.minX];
     CGSize size = [numericLabel sizeWithAttributes:[self axesLabelsAttributes]];
     CGRect rect = CGRectMake(graphBounds.origin.x, xLabelsYCoord, size.width, size.height);
-    [numericLabel drawInRect:rect withAttributes:[self axesLabelsAttributes]];
+    [numericLabel drawInRect:CGRectIntegral(rect) withAttributes:[self axesLabelsAttributes]];
     
     // Right x
     numericLabel = [NSString stringWithFormat:@"%.4g", self.maxX];
     size = [numericLabel sizeWithAttributes:[self axesLabelsAttributes]];
     rect = CGRectMake(graphBounds.origin.x + graphBounds.size.width - size.width, xLabelsYCoord, size.width, size.height);
-    [numericLabel drawInRect:rect withAttributes:[self axesLabelsAttributes]];
+    [numericLabel drawInRect:CGRectIntegral(rect) withAttributes:[self axesLabelsAttributes]];
     
     // Bottom y
     numericLabel = [NSString stringWithFormat:@"%.3g", self.minY];
     size = [numericLabel sizeWithAttributes:[self axesLabelsAttributes]];
     rect = CGRectMake(graphBounds.origin.x - AXIS_LABEL_TO_BORDER_SPACE - size.width, graphBounds.origin.y + graphBounds.size.height - size.height, size.width, size.height);
-    [numericLabel drawInRect:rect withAttributes:[self axesLabelsAttributes]];
+    [numericLabel drawInRect:CGRectIntegral(rect) withAttributes:[self axesLabelsAttributes]];
     
     // Top y
     numericLabel = [NSString stringWithFormat:@"%.3g", self.maxY];
     size = [numericLabel sizeWithAttributes:[self axesLabelsAttributes]];
     rect = CGRectMake(graphBounds.origin.x - AXIS_LABEL_TO_BORDER_SPACE - size.width, graphBounds.origin.y, size.width, size.height);
-    [numericLabel drawInRect:rect withAttributes:[self axesLabelsAttributes]];
+    [numericLabel drawInRect:CGRectIntegral(rect) withAttributes:[self axesLabelsAttributes]];
 
     
 }
